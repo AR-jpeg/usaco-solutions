@@ -6,9 +6,10 @@ TASK: namenum
 
 from typing import Dict
 
-digits: str = open("namenum.in").read()
+digits: str = open("namenum.in").read().strip(' ')
+
 fout = open("namenum.out", 'w')
-dictIn = [word.strip('\n') for word in open("dict.txt").readlines()]
+dictIn = [word.strip('\n').strip(' ') for word in open("dict.txt").readlines()]
 has_one_valid_word: bool = False
 
 mp: Dict[str, str] = {}
@@ -27,18 +28,18 @@ for word in dictIn:
         continue
 
     isValid: bool = True
-    for i in range(0, len(word), 1):
-        try:
-            if mp[word[i]] != digits[i]:
-                print(mp[word[i]], digits[i])
-                isValid = False
-                break
-        except:
-            pass
+    for i in range(len(word)):
+        if word[i] == 'Q' or word[i] == 'Z':
+            isValid = False
+            break
 
-        if isValid:
-            has_one_valid_word = True
-            fout.write(word + '\n')
+        if mp[word[i]] != digits[i]:
+            isValid = False
+            break
+
+    if isValid:
+        has_one_valid_word = True
+        fout.write(word + '\n')
 
 if not has_one_valid_word:
     fout.write('NONE' '\n')
