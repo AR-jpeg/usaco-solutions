@@ -4,12 +4,13 @@ LANG: PYTHON3
 TASK: namenum
 """
 
-from typing import Dict
+from typing import Dict, List
 
 digits: str = open("namenum.in").read().strip(' ')
 
 fout = open("namenum.out", 'w')
-dictIn = [word.strip('\n').strip(' ') for word in open("dict.txt").readlines()]
+dictIn: List[str] = [word.strip('\n').strip(' ')
+                     for word in open("dict.txt").readlines()]
 has_one_valid_word: bool = False
 
 mp: Dict[str, str] = {}
@@ -28,6 +29,7 @@ for word in dictIn:
         continue
 
     isValid: bool = True
+
     for i in range(len(word)):
         if word[i] == 'Q' or word[i] == 'Z':
             isValid = False
