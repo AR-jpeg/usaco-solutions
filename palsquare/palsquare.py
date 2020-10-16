@@ -11,8 +11,10 @@ fin: str = open('palsquare.in').read().strip().strip('\n')
 fout = open('palsquare.out', 'w')
 
 base: int = int(fin)
-numbers: List[str] = ['0', '1', '2', '3', '4', '5', '6', '7',
-                      '8', '9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J']
+numbers: List[str] = [
+    '0', '1', '2', '3', '4', '5', '6', '7',
+    '8', '9', 'A', 'B', 'C', 'D', 'E', 'F',
+    'G', 'H', 'I', 'J']
 
 
 def convert(n: float, base: int, numbers: List[str]) -> str:
