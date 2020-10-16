@@ -62,7 +62,7 @@ for bInstruction, eInstruction in zip(bessieInstructions, elsieInstructions):
     elif eInstruction[-1] == 'L':
         ePos -= int(eInstruction.split()[0])
 
-    if intersect(bPos, ePos, oldbPos, oldePos) == True:
+    if intersect(bPos, ePos, oldbPos, oldePos):
         print(bPos, ePos, oldbPos, oldePos, 'intersected')
         nTimesMet += 1
 
