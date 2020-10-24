@@ -12,12 +12,11 @@ current_line = 0
 amount_of_people = int(lines[0])
 people = {}
 
-names = lines[1:amount_of_people+1]
+names = lines[1:amount_of_people + 1]
 for name in names:
     people[name] = 0
 
-
-current_line = amount_of_people+1
+current_line = amount_of_people + 1
 
 
 def money(amount_to_give, amount_of_people_to_give_to):
@@ -39,7 +38,8 @@ def block(current_line):
     people[cp] += money(amount_to_give, amount_of_people_to_give_to)
 
     for _ in range(amount_of_people_to_give_to):
-        people[lines[current_line]] += amount_to_give // amount_of_people_to_give_to
+        people[lines[
+            current_line]] += amount_to_give // amount_of_people_to_give_to
         current_line += 1
 
     return current_line

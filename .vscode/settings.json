@@ -1,11 +1,13 @@
 {
     "python.linting.pydocstyleEnabled": false,
-    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Enabled": false,
     "python.linting.enabled": true,
 
     "files.exclude": {
         "LICENSE":true,
         "README.md":true,
         "CODE_OF_CONDUCT.md": true,
-    }
+    },
+    "python.linting.pylintEnabled": false,
+    "python.linting.pylamaEnabled": true
 }

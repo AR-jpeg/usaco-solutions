@@ -1,0 +1,9 @@
+rule infer
+  command = c:\anaconda3\python.exe -m pytype.single --imports_info $imports --module-name $module -V 3.8 -o $out --no-report-errors --nofail --quick $in
+  description = infer $module
+rule check
+  command = c:\anaconda3\python.exe -m pytype.single --imports_info $imports --module-name $module -V 3.8 -o $out --analyze-annotated --nofail --quick $in
+  description = check $module
+build C:\dev\Usaco\beads\.pytype\pyi\beads.pyi: check C:\dev\Usaco\beads\beads.py
+  imports = C:\dev\Usaco\beads\.pytype\imports\beads.imports
+  module = beads

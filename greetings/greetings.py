@@ -4,7 +4,6 @@ with open('greetings.in') as f:
     for i in range(len(lines)):
         lines[i] = lines[i].strip('\n')
 
-
 lineNumber = 0
 
 bessieLineNumber, elsieLineNumber = lines[lineNumber].split()

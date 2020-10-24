@@ -4,13 +4,11 @@ LANG: PYTHON3
 TASK: milk2
 """
 
-
 from typing import List
 
 
 class IntervalPeriod():
     """Represent an interval period."""
-
     def __init__(self, low_start: int, high_end: int) -> None:
         self._low: int = low_start
         self._high: int = high_end
@@ -47,18 +45,17 @@ intervals = sorted(intervals)
 
 low: int = intervals[0].get_low()
 high: int = intervals[0].get_high()
-maxInterval: int = high-low
+maxInterval: int = high - low
 maxGap: int = 0
 
 for i, interval in enumerate(intervals):
     if interval.get_low() <= high:
         high = max(interval.get_high(), high)
     else:
-        maxInterval = max(maxInterval, high-low)
-        maxGap = max(maxGap, interval.get_low()-high)
+        maxInterval = max(maxInterval, high - low)
+        maxGap = max(maxGap, interval.get_low() - high)
         low = interval.get_low()
         high = interval.get_high()
-
 
 with open('milk2.out', 'w') as f:
     f.write(str(maxInterval) + " " + str(maxGap) + '\n')
